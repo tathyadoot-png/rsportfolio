@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== POLITICAL COLOR SYSTEM ===== */
+@layer base {
+  :root {
+    --color-primary: #E46B2E;      /* Kesariya */
+    --color-secondary: #1E3A8A;    /* Governance Blue */
+
+    --color-text: #1F2937;
+    --color-text-muted: #6B7280;
+
+    --color-bg: #FFFFFF;
+    --color-bg-soft: #F9FAFB;
+
+    --color-border: #E5E7EB;
+  }
+
+  body {
+    @apply bg-bg text-text antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+}
