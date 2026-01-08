@@ -18,10 +18,12 @@ const config: Config = {
       },
     },
     extend: {
+      
       colors: {
         /* Political Brand Colors */
         primary: "var(--color-primary)",       // Kesariya
         secondary: "var(--color-secondary)",   // Governance Blue
+        btn: "var(--color-btn)",   // Governance Blue
 
         /* Text */
         text: "var(--color-text)",
@@ -34,9 +36,12 @@ const config: Config = {
         /* Borders */
         border: "var(--color-border)",
       },
-      fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        hindi: ["Hind", "Noto Sans Devanagari", "sans-serif"],
+      
+     fontFamily: {
+        amita: ['"Amita"', 'serif'],
+        asar: ['"Asar"', 'serif'],
+        gotu: ['"Gotu"', 'sans-serif'],
+        playpen: ['"Playpen Sans Deva"', 'sans-serif'],
       },
       boxShadow: {
         soft: "0 4px 20px rgba(0, 0, 0, 0.06)",

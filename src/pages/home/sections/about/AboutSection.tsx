@@ -1,9 +1,14 @@
-import hi from "@/locales/hi";
-import en from "@/locales/en";
-import type { Lang } from "@/layouts/MainLayout";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { GraduationCap, ShieldCheck, Zap, ArrowRight, MousePointer2 } from "lucide-react";
+import { GraduationCap, ShieldCheck, User, Star, Quote } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef } from "react";
+import img18 from "@/assets/18.jpg";
+import SectionHeading from "@/components/ui/SectionHeading/SectionHeading";
+
+gsap.registerPlugin(ScrollTrigger);
+
+type Lang = "hi" | "en";
 
 interface AboutSectionProps {
   lang: Lang;
@@ -11,150 +16,180 @@ interface AboutSectionProps {
 
 const AboutSection = ({ lang }: AboutSectionProps) => {
   const isHi = lang === "hi";
-  const [isFlipped, setIsFlipped] = useState(false);
+  const sectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // 1. Giant Name Reveal (Slide up with skew)
+      gsap.from(".giant-name span", {
+        y: 100,
+        skewY: 7,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1.5,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".giant-name",
+          start: "top 85%",
+        }
+      });
+
+      // 2. Bio Text Reveal (Fade in and slide)
+      gsap.from(".bio-content > div", {
+        x: -50,
+        opacity: 0,
+        stagger: 0.3,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".bio-content",
+          start: "top 80%",
+        }
+      });
+
+      // 3. Image Scale & Reveal
+      gsap.from(".img-container", {
+        scale: 1.2,
+        clipPath: "inset(100% 0% 0% 0%)",
+        duration: 1.5,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: ".img-container",
+          start: "top 80%",
+        }
+      });
+
+      // 4. Staggered Cards (Existing but optimized)
+      gsap.from(".info-card", {
+        y: 100,
+        rotate: 5,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".content-grid",
+          start: "top 85%",
+        }
+      });
+
+      // 5. Background Legacy Text Parallax
+      gsap.to(".legacy-watermark", {
+        x: -200,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 2,
+        }
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="relative min-h-screen bg-bg py-20 flex items-center overflow-hidden">
-      {/* --- AESTHETIC TECH BACKGROUND --- */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[-5%] h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-[120px]" />
-        {/* Abstract Tech Line */}
-        <svg className="absolute top-0 left-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+    <section ref={sectionRef} className="relative w-full bg-[#FDFDFD] overflow-hidden">
+      
+      {/* 1. TOP SEAMLESS HEADING */}
+      <div className="w-full pt-20 pb-10 bg-gradient-to-b from-gray-50 to-white">
+        <SectionHeading
+          subtitle={isHi ? "जनसेवा को समर्पित एक जीवन" : "A Life Dedicated to Public Service"}
+          title={isHi ? "परिचय" : "About"}
+        />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+      <div className="max-w-[1800px] mx-auto px-6 lg:px-28 pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* LEFT SIDE: KINETIC TEXT */}
-          <div className="w-full lg:w-1/2 space-y-12">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-7xl md:text-9xl font-black text-text/5 leading-none absolute -top-10 left-0 select-none">
-                ABOUT
-              </h2>
-              <div className="relative z-10">
-                <span className="text-primary font-bold tracking-[0.4em] text-xs uppercase mb-4 block">
-                   {isHi ? "व्यक्तित्व" : "The Persona"}
+          {/* 2. LEFT COLUMN */}
+          <div className="lg:col-span-7 space-y-12">
+            
+            {/* Giant Name Branding */}
+            <div className="relative group giant-name overflow-hidden">
+              <h2 className="font-[Gotu] font-[1000] leading-[0.85] tracking-tighter uppercase text-[#112250] text-6xl md:text-[8rem] lg:text-[9rem]">
+                <span className="text-[#E46B2E] block">{isHi ? "राजेन्द्र" : "RAJENDRA"}</span>
+                <span className="relative inline-block">
+                  {isHi ? "शुक्ल" : "SHUKLA"}
+                  <div className="absolute -right-12 top-0 hidden md:block">
+                     <Star className="text-[#E46B2E] animate-spin-slow" size={60} />
+                  </div>
                 </span>
-                <h3 className="text-5xl md:text-7xl font-black text-text tracking-tighter leading-[0.9]">
-                  Rajendra <br /> 
-                  <span className="text-primary">Shukla</span>
-                </h3>
+              </h2>
+            </div>
+
+            {/* Biography Content */}
+            <div className="space-y-8 max-w-2xl bio-content">
+              <div className="p-8 border-l-[6px] border-[#E46B2E] bg-white shadow-[20px_20px_60px_rgba(0,0,0,0.05)] rounded-r-[2rem]">
+                <p className="font-[Gotu] text-2xl font-black text-[#112250]">
+                  {isHi 
+                    ? "जन्म: 03 अगस्त 1964 | बी.ई. (मैकेनिकल), रीवा इंजीनियरिंग कॉलेज" 
+                    : "Born: Aug 03, 1964 | B.E. (Mechanical), Rewa Engg. College"}
+                </p>
               </div>
-            </motion.div>
 
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="text-xl text-muted leading-relaxed max-w-md border-l-2 border-primary/20 pl-6 italic"
-            >
-              {isHi 
-                ? "इंजीनियरिंग की सटीकता और सेवा का संकल्प—एक ऐसा नेतृत्व जो आधुनिक मध्यप्रदेश की नींव रख रहा है।" 
-                : "A legacy built on engineering precision and public service—redefining leadership for modern MP."}
-            </motion.p>
-
-            {/* Simple Clean Stats */}
-            <div className="flex gap-10">
-               <div>
-                  <p className="text-3xl font-black text-text tracking-tighter italic">1986</p>
-                  <p className="text-[10px] font-bold text-primary uppercase tracking-widest mt-1">Graduate</p>
-               </div>
-               <div className="h-10 w-[1px] bg-border my-auto" />
-               <div>
-                  <p className="text-3xl font-black text-text tracking-tighter italic">1998</p>
-                  <p className="text-[10px] font-bold text-primary uppercase tracking-widest mt-1">Politics</p>
-               </div>
+              <div className="space-y-8 font-[Martel] text-gray-600 font-bold leading-relaxed text-xl">
+                <div className="flex gap-4">
+                  <Quote className="text-[#E46B2E] shrink-0" size={32} />
+                  <p>
+                    {isHi 
+                      ? "अपने छात्र जीवन के दौरान वर्ष 1985-86 में वे इंजीनियरिंग कॉलेज, रीवा के छात्रसंघ अध्यक्ष निर्वाचित हुए, जिससे उनके नेतृत्व कौशल की प्रारंभिक पहचान बनी।"
+                      : "During his student days in 1985-86, he was elected as the President of the Student Union at Rewa Engineering College, marking his early leadership."}
+                  </p>
+                </div>
+                <p className="pl-12 border-l-2 border-gray-100 italic">
+                  {isHi 
+                    ? "वर्ष 1998 में उन्होंने भारतीय जनता पार्टी की सदस्यता ग्रहण की तथा शीघ्र ही प्रदेश कार्यसमिति सदस्य बनाए गए।"
+                    : "In 1998, he joined the Bharatiya Janata Party and was soon appointed as a member of the State Executive Committee."}
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* RIGHT SIDE: THE ULTRA-MODERN FLIP CARD */}
-          <div className="w-full lg:w-1/2 flex justify-center perspective-2000">
-            <div 
-              className="relative w-full max-w-[380px] aspect-[4/5] cursor-pointer group"
-              onClick={() => setIsFlipped(!isFlipped)}
-            >
-              {/* Floating Decoration */}
-              <div className="absolute -inset-4 bg-primary/20 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
-              
-              <motion.div
-                initial={false}
-                animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6, ease: "circOut" }}
-                style={{ transformStyle: "preserve-3d" }}
-                className="relative w-full h-full"
-              >
-                {/* --- FRONT: THE VISION --- */}
-                <div className="absolute inset-0 w-full h-full backface-hidden bg-white/40 dark:bg-black/20 backdrop-blur-xl border border-white/40 rounded-[3rem] p-10 flex flex-col justify-between shadow-2xl">
-                  <div className="space-y-6">
-                    <div className="w-14 h-14 bg-text text-bg rounded-2xl flex items-center justify-center">
-                      <Zap size={28} />
-                    </div>
-                    <h4 className="text-4xl font-black text-text leading-none uppercase tracking-tighter">
-                      The <br /> <span className="text-primary italic">Visionary</span>
-                    </h4>
-                    <p className="text-sm text-muted font-medium leading-relaxed">
-                       {isHi 
-                        ? "रीवा इंजीनियरिंग कॉलेज से शुरू हुआ यह सफर आज मध्यप्रदेश के विकास की मुख्यधारा बना हुआ है।" 
-                        : "From the corridors of REWA Engineering College to leading the health reforms of the state."}
-                    </p>
-                  </div>
+          {/* 3. RIGHT COLUMN */}
+          <div className="lg:col-span-5 space-y-8 content-grid">
+            
+            {/* Immersive Image Container */}
+            <div className="relative h-[400px] rounded-[3rem] overflow-hidden shadow-2xl group img-container">
+              <img 
+                src={img18} 
+                className="bg-parallax absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                alt="Rajendra Shukla" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#112250] via-transparent to-transparent opacity-60" />
+              <div className="absolute bottom-8 left-8">
+                 <p className="text-white font-[Gotu] text-sm tracking-widest uppercase opacity-80">Rewa, Madhya Pradesh</p>
+              </div>
+            </div>
 
-                  <div className="flex items-center gap-2 text-primary group-hover:gap-4 transition-all">
-                    <span className="text-[10px] font-black uppercase tracking-widest">Tap to Flip Info</span>
-                    <ArrowRight size={16} />
-                  </div>
+            {/* Interactive Grid Cards */}
+            <div className="grid grid-cols-2 gap-6">
+              <motion.div whileHover={{ y: -5 }} className="info-card col-span-2 p-10 rounded-[3rem] bg-[#112250] text-white relative overflow-hidden group">
+                <User className="text-[#E46B2E] mb-4" size={32} />
+                <p className="font-[Gotu] text-2xl font-black italic uppercase leading-tight relative z-10">
+                  {isHi ? "छात्रसंघ अध्यक्ष (1985)" : "Student Union President"}
+                </p>
+                <div className="absolute -right-4 -bottom-4 text-white/5 group-hover:scale-110 transition-transform">
+                   <User size={150} />
                 </div>
+              </motion.div>
 
-                {/* --- BACK: THE INTEL --- */}
-                <div 
-                  className="absolute inset-0 w-full h-full backface-hidden bg-bg-soft border-2 border-primary/20 rounded-[3rem] p-10 flex flex-col justify-between shadow-2xl"
-                  style={{ transform: "rotateY(180deg)" }}
-                >
-                  <div className="space-y-8">
-                    <div className="flex justify-between items-start">
-                       <h4 className="text-xs font-black uppercase tracking-[0.3em] text-primary italic">Data Archive</h4>
-                       <MousePointer2 size={16} className="text-primary animate-bounce" />
-                    </div>
-                    
-                    <div className="space-y-6">
-                       <div className="group/item flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary">
-                             <GraduationCap size={20} />
-                          </div>
-                          <div>
-                             <p className="text-[9px] font-bold text-muted uppercase">Degree</p>
-                             <p className="text-sm font-black text-text">B.E. Mechanical '86</p>
-                          </div>
-                       </div>
-                       
-                       <div className="group/item flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary">
-                             <ShieldCheck size={20} />
-                          </div>
-                          <div>
-                             <p className="text-[9px] font-bold text-muted uppercase">Political Party</p>
-                             <p className="text-sm font-black text-text">BJP State Executive</p>
-                          </div>
-                       </div>
-                    </div>
-                  </div>
+              <motion.div whileHover={{ scale: 1.02 }} className="info-card p-8 rounded-[2.5rem] bg-white border border-gray-100 shadow-sm flex flex-col justify-between aspect-square group">
+                <div className="h-14 w-14 bg-[#E46B2E]/10 text-[#E46B2E] rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+                  <GraduationCap size={28} />
+                </div>
+                <div>
+                  <p className="font-[Gotu] text-3xl font-black text-[#112250]">B.E.</p>
+                  <p className="font-[Martel] text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">{isHi ? "मैकेनिकल 1986" : "Mechanical '86"}</p>
+                </div>
+              </motion.div>
 
-                  <div className="mt-10 bg-text p-6 rounded-2xl text-bg text-center relative overflow-hidden group/box">
-                     <p className="text-[10px] font-black uppercase tracking-widest opacity-50 relative z-10">Current Designation</p>
-                     <p className="text-lg font-black italic mt-1 relative z-10">{isHi ? "स्वास्थ्य मंत्री" : "Health Minister"}</p>
-                     <div className="absolute top-0 right-0 w-20 h-full bg-primary/20 -skew-x-12 translate-x-10 group-hover/box:translate-x-0 transition-transform" />
-                  </div>
+              <motion.div whileHover={{ scale: 1.02 }} className="info-card p-8 rounded-[2.5rem] bg-white border border-gray-100 shadow-sm flex flex-col justify-between aspect-square group">
+                <div className="h-14 w-14 bg-[#112250]/10 text-[#112250] rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+                  <ShieldCheck size={28} />
+                </div>
+                <div>
+                  <p className="font-[Gotu] text-3xl font-black text-[#112250]">BJP</p>
+                  <p className="font-[Martel] text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">{isHi ? "सदस्यता 1998" : "Joined 1998"}</p>
                 </div>
               </motion.div>
             </div>
@@ -162,10 +197,11 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
         </div>
       </div>
 
-      <style>{`
-        .perspective-2000 { perspective: 2000px; }
-        .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-      `}</style>
+      {/* Background Watermark Layer */}
+      <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gray-100 -z-10" />
+      <h1 className="legacy-watermark absolute bottom-0 right-0 text-[30vw] font-black text-gray-400/5 leading-none select-none pointer-events-none uppercase">
+        Legacy
+      </h1>
     </section>
   );
 };

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gotu&family=Playpen+Sans+Deva:wght@100..800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -8,9 +8,9 @@
 @layer base {
   :root {
     --color-primary: #E46B2E;      /* Kesariya */
-    --color-secondary: #1E3A8A;    /* Governance Blue */
+    --color-secondary: #112250;    /* Governance Blue */
 
-    --color-text: #1F2937;
+    --color-text: #1E3A8A;
     --color-text-muted: #6B7280;
 
     --color-bg: #FFFFFF;
@@ -19,8 +19,20 @@
     --color-border: #E5E7EB;
   }
 
+  /* 🔹 Default body content font */
   body {
     @apply bg-bg text-text antialiased;
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: 'Martel';
+  }
+
+  /* 🔹 All headings = Gotu */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Gotu';
+    letter-spacing: 0.01em;
   }
 }
