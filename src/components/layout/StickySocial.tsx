@@ -34,9 +34,23 @@ const StickySocial = () => {
   ];
 
   return (
-    <div className="fixed z-[999] right-5 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-4">
-      {/* Sleek Vertical Glass Dock */}
-      <div className="bg-white/70 backdrop-blur-2xl border border-white/50 p-2.5 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] flex flex-col gap-4">
+    /* PLACEMENT CHANGE:
+       Mobile: Bottom-Right (Safe Zone)
+       Desktop: Center-Right (Original)
+    */
+    <div className="fixed z-[999] 
+      bottom-24 right-5 
+      md:right-5 md:top-1/2 md:-translate-y-1/2 md:bottom-auto"
+    >
+      {/* DOCK STYLE:
+          Mobile: Super compact and more transparent
+          Desktop: Your original glass dock
+      */}
+      <div className="bg-white/40 backdrop-blur-xl border border-white/30 
+        p-1.5 md:p-2.5 rounded-[2rem] 
+        shadow-[0_10px_30px_rgba(0,0,0,0.08)] 
+        flex flex-col gap-2.5 md:gap-4"
+      >
         
         {socials.map((item, idx) => (
           <motion.a
@@ -44,29 +58,33 @@ const StickySocial = () => {
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.15, rotate: 5 }}
-            whileTap={{ scale: 0.95 }}
-            className={`relative group h-12 w-12 flex items-center justify-center rounded-2xl border ${item.bg} ${item.border} transition-all duration-300 hover:shadow-lg`}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={`relative group 
+              h-6 w-6 md:h-12 md:w-12 
+              flex items-center justify-center rounded-full md:rounded-2xl 
+              border ${item.bg} ${item.border} 
+              transition-all duration-300`}
           >
-            {/* Hover Solid Background & Glow */}
+            {/* Hover Background - Only visible on Desktop hover */}
             <div 
-              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
+              className="absolute inset-0 rounded-full md:rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300"
               style={{ 
                 backgroundColor: item.color, 
-                boxShadow: `0 10px 20px -5px ${item.color}66` 
+                boxShadow: `0 8px 15px -5px ${item.color}88` 
               }}
             />
             
-            {/* Icon - FIXED: Hover pe white dikhega */}
+            {/* Icon: Slightly smaller on mobile */}
             <item.icon 
-              className="w-5 h-5 relative z-10 transition-colors duration-300 group-hover:!text-white" 
+              className="w-3.5 h-3.5 md:w-5 md:h-5 relative z-10 transition-colors duration-300 group-hover:!text-white" 
               style={{ color: item.color }} 
             />
 
-            {/* Magnetic Tooltip */}
-            <div className="absolute right-full mr-5 px-3 py-1.5 rounded-xl bg-secondary text-white text-[10px] font-black uppercase tracking-[0.15em] opacity-0 group-hover:opacity-100 pointer-events-none transition-all translate-x-4 group-hover:translate-x-0 shadow-xl border border-white/10 whitespace-nowrap">
-               Follow Us
-               <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-secondary rotate-45" />
+            {/* Tooltip: Hidden on Mobile */}
+            <div className="hidden md:block absolute right-full mr-5 px-3 py-1.5 rounded-xl bg-black text-white text-[10px] font-black uppercase tracking-[0.15em] opacity-0 group-hover:opacity-100 pointer-events-none transition-all translate-x-4 group-hover:translate-x-0 whitespace-nowrap">
+                Follow
+                <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-black rotate-45" />
             </div>
           </motion.a>
         ))}
