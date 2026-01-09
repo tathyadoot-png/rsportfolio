@@ -19,23 +19,20 @@ const config: Config = {
     },
     extend: {
       
-      colors: {
-        /* Political Brand Colors */
-        primary: "var(--color-primary)",       // Kesariya
-        secondary: "var(--color-secondary)",   // Governance Blue
-        btn: "var(--color-btn)",   // Governance Blue
+    colors: {
+  primary: "var(--color-primary)",     // Kesariya
+  secondary: "var(--color-secondary)", // Blue
+  green: "var(--color-green)",         // Vikas Green
 
-        /* Text */
-        text: "var(--color-text)",
-        muted: "var(--color-text-muted)",
+  text: "var(--color-text)",
+  muted: "var(--color-text-muted)",
 
-        /* Backgrounds */
-        bg: "var(--color-bg)",
-        "bg-soft": "var(--color-bg-soft)",
+  bg: "var(--color-bg)",
+  "bg-soft": "var(--color-bg-soft)",
 
-        /* Borders */
-        border: "var(--color-border)",
-      },
+  border: "var(--color-border)",
+},
+
       
      fontFamily: {
         amita: ['"Amita"', 'serif'],

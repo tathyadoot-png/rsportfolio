@@ -9,15 +9,16 @@
   :root {
     --color-primary: #E46B2E;      /* Kesariya */
     --color-secondary: #112250;    /* Governance Blue */
+    --color-green: #159172;        /* Vikas Green */
 
     --color-text: #1E3A8A;
     --color-text-muted: #6B7280;
 
     --color-bg: #FFFFFF;
     --color-bg-soft: #F9FAFB;
-
     --color-border: #E5E7EB;
   }
+
 
   /* 🔹 Default body content font */
   body {
@@ -34,5 +35,41 @@
   h6 {
     font-family: 'Gotu';
     letter-spacing: 0.01em;
+  }
+}
+
+
+@layer components {
+
+  /* 🔶 Kesariya CTA */
+  .btn-saffron {
+    @apply bg-primary text-white px-6 py-2 rounded-md
+           font-semibold tracking-wide
+           hover:brightness-110 active:scale-95
+           transition-all shadow-soft;
+  }
+
+  /* 🔷 Governance Blue */
+  .btn-blue {
+    @apply bg-secondary text-white px-6 py-2 rounded-md
+           font-semibold
+           hover:brightness-110 active:scale-95
+           transition-all shadow-soft;
+  }
+
+  /* 🟢 Vikas Green */
+  .btn-green {
+    @apply bg-green text-white px-6 py-2 rounded-md
+           font-semibold
+           hover:brightness-110 active:scale-95
+           transition-all shadow-soft;
+  }
+
+  /* 🟢 Outline Green (Optional) */
+  .btn-green-outline {
+    @apply border border-green text-green bg-transparent
+           px-6 py-2 rounded-md font-semibold
+           hover:bg-green hover:text-white
+           transition-all;
   }
 }

@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from "react";
-import { motion } from "framer-motion"; // ✅ Fix: Import motion
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -15,7 +15,6 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Horizontal Line animation
       gsap.from(".connector-line", {
         width: 0,
         opacity: 0,
@@ -24,7 +23,6 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
         scrollTrigger: { trigger: containerRef.current, start: "top 90%" },
       });
 
-      // Text reveal from bottom
       gsap.from(".reveal-up", {
         y: 60,
         opacity: 0,
@@ -38,39 +36,38 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
   }, []);
 
   return (
- <div
-  ref={containerRef}
-  className="relative w-[96%] lg:w-[88%] mx-auto mb-16 md:mb-24 px-4 md:px-6 overflow-hidden"
->
-
-      {/* WRAPPER: Flex-row for Desktop, Col for Mobile */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-12">
+    <div
+      ref={containerRef}
+      className="relative w-full lg:w-[90%] mx-auto mb-12 md:mb-20 px-4 md:px-8 lg:px-12 overflow-hidden"
+    >
+      {/* WRAPPER: Responsive gap management */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-8 lg:gap-12">
         
-        {/* LEFT: HEADING (Massive & Bold) */}
-        <div className="flex-shrink-0">
-          <div className="overflow-hidden py-2">
-            <h2 className="reveal-up font-[Gotu] text-3xl md:text-5xl lg:text-6xl font-[1000] text-[#112250] leading-[0.85] tracking-tighter uppercase">
+        {/* LEFT: HEADING - Adjusted md text size to prevent overflow */}
+        <div className="flex-shrink-0 md:max-w-[60%] lg:max-w-none">
+          <div className="py-2">
+            <h2 className="reveal-up font-[Gotu] text-3xl md:text-4xl lg:text-6xl font-[1000] text-[#112250] leading-[0.9] md:leading-[0.85] tracking-tighter uppercase">
               {title}
             </h2>
           </div>
         </div>
 
-        {/* MIDDLE: DESIGNER LINE (Visible only on Desktop) */}
-        <div className="hidden lg:block flex-grow mb-8">
-          <div className="connector-line h-[2px] w-full bg-gradient-to-r from-[#112250] to-[#E46B2E]/20" />
+        {/* MIDDLE: DESIGNER LINE (Visible on md and up) */}
+        <div className="hidden md:block flex-grow mb-4 lg:mb-8">
+          <div className="connector-line h-[2px] w-full bg-gradient-to-r from-primary to-green" />
         </div>
 
-        {/* RIGHT: SUBTITLE & TAG (Clean & Minimal) */}
-        <div className="md:w-1/3 md:pb-6">
+        {/* RIGHT: SUBTITLE & TAG - Width adjusted for md screens */}
+        <div className="w-full md:w-auto lg:w-1/3 md:pb-3 lg:pb-6">
           <div className="overflow-hidden">
             {subtitle && (
-              <p className="reveal-up font-[Martel] text-sm md:text-lg font-black uppercase tracking-[0.4em] text-[#E46B2E] mb-4 leading-tight">
+              <p className="reveal-up font-[Martel] text-xs md:text-sm lg:text-lg font-black uppercase tracking-[0.2em] lg:tracking-[0.4em] text-green mb-2 lg:mb-4 leading-tight">
                 {subtitle}
               </p>
             )}
-            <div className="reveal-up flex items-center gap-3">
-              <span className="h-px w-10 bg-[#112250]/30" />
-              <span className="text-[10px] font-bold text-[#112250]/40 uppercase tracking-widest whitespace-nowrap">
+            <div className="reveal-up flex items-center gap-2 lg:gap-3">
+              <span className="h-px w-6 lg:w-10 bg-[#112250]/30" />
+              <span className="text-[8px] lg:text-[10px] font-bold text-primary uppercase tracking-widest whitespace-nowrap">
                 Public Leader • Vision 2026
               </span>
             </div>
@@ -78,11 +75,12 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
         </div>
       </div>
 
-      {/* BOTTOM PROGRESS BAR (Seamless) */}
-      <div className="mt-10 w-full h-[1px] bg-gray-100 relative">
+      {/* BOTTOM PROGRESS BAR */}
+      <div className="mt-6 lg:mt-10 w-full h-[1px] bg-gray-100 relative">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: "30%" }}
+          viewport={{ once: true }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute left-0 top-0 h-full bg-[#E46B2E]"
         />

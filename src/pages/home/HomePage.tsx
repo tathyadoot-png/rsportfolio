@@ -7,6 +7,7 @@ import ContributionsSection from "./sections/contributions/ContributionsSection"
 import AchievementsSection from "./sections/achievements/AchievementsSection";
 import LeadershipSection from "./sections/leadership/LeadershipSection";
 import GallerySection from "./sections/gallery/GallerySection";
+import ContactSection from "./sections/contact/ContactSection";
 // import HeroSection from "./sections/hero/HeroSection";
 
 const HomePage = () => {
@@ -33,9 +34,11 @@ const HomePage = () => {
   <LeadershipSection lang={lang} />
 </section>
 <section id="media">
-  <GallerySection lang={lang} />
+  <GallerySection  />
 </section>
-
+<section id="contact">
+  <ContactSection  />
+</section>
     </>
   );
 };

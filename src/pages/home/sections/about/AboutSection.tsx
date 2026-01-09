@@ -110,16 +110,14 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
                 <span className="text-[#E46B2E] block">{isHi ? "राजेन्द्र" : "RAJENDRA"}</span>
                 <span className="relative inline-block">
                   {isHi ? "शुक्ल" : "SHUKLA"}
-                  <div className="absolute -right-12 top-0 hidden md:block">
-                     <Star className="text-[#E46B2E] animate-spin-slow" size={60} />
-                  </div>
+                 
                 </span>
               </h2>
             </div>
 
             {/* Biography Content */}
             <div className="space-y-8 max-w-2xl bio-content">
-              <div className="p-8 border-l-[6px] border-[#E46B2E] bg-white shadow-[20px_20px_60px_rgba(0,0,0,0.05)] rounded-r-[2rem]">
+              <div className="p-8 border-l-[6px] border-green bg-white shadow-[20px_20px_60px_rgba(0,0,0,0.05)] rounded-r-[2rem]">
                 <p className="font-[Gotu] text-2xl font-black text-[#112250]">
                   {isHi 
                     ? "जन्म: 03 अगस्त 1964 | बी.ई. (मैकेनिकल), रीवा इंजीनियरिंग कॉलेज" 
@@ -174,21 +172,21 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.02 }} className="info-card p-8 rounded-[2.5rem] bg-white border border-gray-100 shadow-sm flex flex-col justify-between aspect-square group">
-                <div className="h-14 w-14 bg-[#E46B2E]/10 text-[#E46B2E] rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+                <div className="h-14 w-14 bg-[#E46B2E]/10 text-primary rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
                   <GraduationCap size={28} />
                 </div>
                 <div>
-                  <p className="font-[Gotu] text-3xl font-black text-[#112250]">B.E.</p>
+                  <p className="font-[Gotu] text-3xl font-black text-green">B.E.</p>
                   <p className="font-[Martel] text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">{isHi ? "मैकेनिकल 1986" : "Mechanical '86"}</p>
                 </div>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.02 }} className="info-card p-8 rounded-[2.5rem] bg-white border border-gray-100 shadow-sm flex flex-col justify-between aspect-square group">
-                <div className="h-14 w-14 bg-[#112250]/10 text-[#112250] rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+                <div className="h-14 w-14 bg-[#E46B2E]/10 text-primary rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
                   <ShieldCheck size={28} />
                 </div>
                 <div>
-                  <p className="font-[Gotu] text-3xl font-black text-[#112250]">BJP</p>
+                  <p className="font-[Gotu] text-3xl font-black text-green">BJP</p>
                   <p className="font-[Martel] text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">{isHi ? "सदस्यता 1998" : "Joined 1998"}</p>
                 </div>
               </motion.div>
@@ -199,7 +197,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
 
       {/* Background Watermark Layer */}
       <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gray-100 -z-10" />
-      <h1 className="legacy-watermark absolute bottom-0 right-0 text-[30vw] font-black text-gray-400/5 leading-none select-none pointer-events-none uppercase">
+      <h1 className="legacy-watermark absolute bottom-0 right-0 text-[22vw] font-black text-gray-400/5 leading-none select-none pointer-events-none uppercase">
         Legacy
       </h1>
     </section>
