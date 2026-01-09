@@ -106,7 +106,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
             
             {/* Giant Name Branding */}
             <div className="relative group giant-name overflow-hidden">
-              <h2 className="font-[Gotu] font-[1000] leading-[0.85] tracking-tighter uppercase text-[#112250] text-6xl md:text-[8rem] lg:text-[9rem]">
+              <h2 className="font-[Gotu] font-[1000] py-4 tracking-tighter uppercase text-[#112250] text-6xl md:text-[8rem] lg:text-[9rem]">
                 <span className="text-[#E46B2E] block">{isHi ? "राजेन्द्र" : "RAJENDRA"}</span>
                 <span className="relative inline-block">
                   {isHi ? "शुक्ल" : "SHUKLA"}

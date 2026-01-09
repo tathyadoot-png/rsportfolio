@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PiFlowerLotusThin } from "react-icons/pi"; // React Icon added
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-
+import bjp from "@/assets/bjp.png"
+import StickySocial from "@/components/layout/StickySocial";
 export type Lang = "hi" | "en";
 
 const MainLayout = () => {
@@ -101,7 +102,7 @@ const MainLayout = () => {
                  transition={{ duration: 4, repeat: Infinity }}
                  className="text-orange-500/80"
                >
-                  <PiFlowerLotusThin size={56} />
+                  <img className="w-24" src={bjp} alt="" />
                </motion.div>
             </div>
 
@@ -150,6 +151,10 @@ const MainLayout = () => {
       {!loading && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }}>
           <Navbar lang={lang} setLang={setLang} />
+          
+          {/* STICKY SOCIALS YAHAN ADD KIYE HAIN */}
+          <StickySocial /> 
+
           <main className="min-h-screen bg-white">
             <Outlet context={{ lang }} />
           </main>

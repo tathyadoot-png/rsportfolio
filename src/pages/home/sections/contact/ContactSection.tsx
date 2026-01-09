@@ -100,7 +100,7 @@ const ContactSection = () => {
                     <div className="h-10 w-10 md:h-12 md:w-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-white text-green shadow-sm">
                       <Mail className="w-5 h-5 md:w-6 md:h-6" />
                     </div>
-                    <span className="font-bold text-sm md:text-base text-secondary break-all">contact@example.com</span>
+                    <span className="font-bold text-sm md:text-base text-secondary break-all">officeofrajendrashukla@gmail.com</span>
                  </div>
               </div>
 
@@ -113,13 +113,25 @@ const ContactSection = () => {
               </div>
 
               {/* Social Icons */}
-              <div className="flex gap-4 pt-2 md:pt-4">
-                {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
-                  <button key={i} className="h-11 w-11 md:h-12 md:w-12 flex items-center justify-center rounded-full bg-secondary text-white hover:bg-primary transition-all shadow-md">
-                    <Icon className="w-5 h-5" />
-                  </button>
-                ))}
-              </div>
+             <div className="flex gap-4 pt-2 md:pt-4">
+  {[
+    { Icon: Facebook, link: "https://www.facebook.com/OfficeOfRShukla" },
+    { Icon: Twitter, link: "https://x.com/OfficeOfRShukla" },
+    { Icon: Instagram, link: "https://www.instagram.com/officeofrshukla/" },
+    // { Icon: Youtube, link: "https://www.youtube.com/" },
+  ].map(({ Icon, link }, i) => (
+    <a
+      key={i}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="h-11 w-11 md:h-12 md:w-12 flex items-center justify-center rounded-full bg-secondary text-white hover:bg-primary transition-all shadow-md"
+    >
+      <Icon className="w-5 h-5" />
+    </a>
+  ))}
+</div>
+
             </div>
 
           </div>
