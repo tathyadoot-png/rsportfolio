@@ -106,7 +106,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
             
             {/* Giant Name Branding */}
             <div className="relative group giant-name overflow-hidden">
-              <h2 className="font-[Gotu] font-[1000] py-4 tracking-tighter uppercase text-[#112250] text-6xl md:text-[8rem] lg:text-[9rem]">
+              <h2 className="font-[Gotu] font-[1000] py-4 tracking-tighter md:py-10 uppercase text-[#112250] text-6xl md:text-[8rem] lg:text-[9rem]">
                 <span className="text-[#E46B2E] block">{isHi ? "राजेन्द्र" : "RAJENDRA"}</span>
                 <span className="relative inline-block">
                   {isHi ? "शुक्ल" : "SHUKLA"}
@@ -128,13 +128,13 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
               <div className="space-y-8 font-[Martel] text-gray-600 font-bold leading-relaxed text-xl">
                 <div className="flex gap-4">
                   <Quote className="text-[#E46B2E] shrink-0" size={32} />
-                  <p>
+                  <p className="text-justify" >
                     {isHi 
                       ? "अपने छात्र जीवन के दौरान वर्ष 1985-86 में वे इंजीनियरिंग कॉलेज, रीवा के छात्रसंघ अध्यक्ष निर्वाचित हुए, जिससे उनके नेतृत्व कौशल की प्रारंभिक पहचान बनी।"
                       : "During his student days in 1985-86, he was elected as the President of the Student Union at Rewa Engineering College, marking his early leadership."}
                   </p>
                 </div>
-                <p className="pl-12 border-l-2 border-gray-100 italic">
+                <p className="pl-12 border-l-2 border-gray-100 italic text-justify">
                   {isHi 
                     ? "वर्ष 1998 में उन्होंने भारतीय जनता पार्टी की सदस्यता ग्रहण की तथा शीघ्र ही प्रदेश कार्यसमिति सदस्य बनाए गए।"
                     : "In 1998, he joined the Bharatiya Janata Party and was soon appointed as a member of the State Executive Committee."}

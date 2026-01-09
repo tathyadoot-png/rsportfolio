@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import bjp from "@/assets/bjp.png"
 import StickySocial from "@/components/layout/StickySocial";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 export type Lang = "hi" | "en";
 
 const MainLayout = () => {
@@ -147,20 +148,19 @@ const MainLayout = () => {
           </motion.div>
         )}
       </AnimatePresence>
+{!loading && (
+  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }}>
+    <Navbar lang={lang} setLang={setLang} />
+    
+    <StickySocial /> 
+    <ScrollToTop /> {/* <--- Ye naya button yahan add ho gaya */}
 
-      {!loading && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }}>
-          <Navbar lang={lang} setLang={setLang} />
-          
-          {/* STICKY SOCIALS YAHAN ADD KIYE HAIN */}
-          <StickySocial /> 
-
-          <main className="min-h-screen bg-white">
-            <Outlet context={{ lang }} />
-          </main>
-          <Footer lang={lang} />
-        </motion.div>
-      )}
+    <main className="min-h-screen bg-white">
+      <Outlet context={{ lang }} />
+    </main>
+    <Footer lang={lang} />
+  </motion.div>
+)}
     </>
   );
 };

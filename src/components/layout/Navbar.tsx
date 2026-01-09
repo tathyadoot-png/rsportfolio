@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
-import { Globe, Menu, X, ArrowRight, Home, User, Map, Briefcase, Award, Star, Tv } from "lucide-react";
+import { Globe, Menu, X, ArrowRight, Home, User, Map, Briefcase, Award, Star, Tv, BadgeCheck, PhoneCall } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import hi from "@/locales/hi";
 import en from "@/locales/en";
+import logo from "@/assets/13.jpg";
 
 type Lang = "hi" | "en";
 
@@ -19,20 +20,20 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
   const navRef = useRef(null);
 
   const navItems = [
-    { label: t.nav.home, href: "#home", icon: <Home size={18} /> },
-    { label: t.nav.about, href: "#about", icon: <User size={18} /> },
-    { label: lang === "hi" ? "राजनीतिक यात्रा" : "Journey", href: "#journey", icon: <Map size={18} /> },
-    { label: lang === "hi" ? "प्रमुख कार्य" : "Contributions", href: "#contributions", icon: <Briefcase size={18} /> },
-    { label: t.nav.achievements, href: "#achievements", icon: <Award size={18} /> },
-    { label: lang === "hi" ? "नेतृत्व" : "Leadership", href: "#leadership", icon: <Star size={18} /> },
-    { label: t.nav.media, href: "#media", icon: <Tv size={18} /> },
+    { label: t.nav.home, href: "#home", icon: <Home size={20} /> },
+    { label: t.nav.about, href: "#about", icon: <User size={20} /> },
+    { label: lang === "hi" ? "राजनीतिक यात्रा" : "Journey", href: "#journey", icon: <Map size={20} /> },
+    { label: lang === "hi" ? "प्रमुख कार्य" : "Contributions", href: "#contributions", icon: <Briefcase size={20} /> },
+    { label: t.nav.achievements, href: "#achievements", icon: <Award size={20} /> },
+    { label: lang === "hi" ? "नेतृत्व" : "Leadership", href: "#leadership", icon: <Star size={20} /> },
+    { label: t.nav.media, href: "#media", icon: <Tv size={20} /> },
   ];
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(".nav-reveal", 
         { y: -15, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.05, ease: "power3.out" }
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: "power4.out" }
       );
     }, navRef);
     return () => ctx.revert();
@@ -47,124 +48,131 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
   return (
     <nav ref={navRef} className="fixed top-0 z-[100] w-full px-4 md:px-8 py-4 sm:py-6">
       <div 
-        className={`mx-auto max-w-7xl flex items-center justify-between px-5 py-3.5 transition-all duration-300 rounded-[1.5rem] sm:rounded-2xl ${
+        className={`mx-auto max-w-7xl flex items-center justify-between px-4 sm:px-6 py-2.5 transition-all duration-500 rounded-2xl border ${
           scrolled 
-            ? "bg-bg shadow-2xl border border-border" 
-            : "bg-bg/95 backdrop-blur-md shadow-lg border border-white"
+            ? "bg-white shadow-2xl border-border" 
+            : "bg-white/90 backdrop-blur-xl border-white shadow-lg"
         }`}
       >
-        {/* LOGO - Added a subtle Green accent to the container */}
-        <div className="nav-reveal flex items-center gap-2.5 group cursor-pointer">
-          <div className="h-9 w-9 sm:h-10 sm:w-10 flex items-center justify-center rounded-xl bg-secondary text-white shadow-lg shrink-0 transition-transform group-hover:rotate-6 border-b-2 border-green">
-             <span className="font-gotu font-black text-lg sm:text-xl">R</span>
+        {/* LOGO SECTION - Same as Desktop, minimal on mobile */}
+        <div className="nav-reveal flex items-center gap-3 group cursor-pointer">
+          <div className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 overflow-hidden rounded-xl border-b-[3px] border-green shadow-md">
+             <img src={logo} alt="Logo" className="h-full w-full object-cover" />
           </div>
+
           <div className="flex flex-col">
-            <h2 className="font-gotu font-[1000] text-green text-[15px] sm:text-lg tracking-tighter uppercase leading-none">
+            <h1 className="font-gotu font-[1000] text-secondary text-[14px] sm:text-lg md:text-xl tracking-tighter uppercase leading-none">
               {lang === "hi" ? "राजेन्द्र शुक्ल" : "Rajendra Shukla"}
-            </h2>
-            <div className="flex items-center gap-1.5 mt-0.5">
-               <span className="text-[7px] sm:text-[9px] font-black text-primary tracking-[0.2em] uppercase">
+            </h1>
+            <div className="flex items-center gap-1.5 mt-0.5 sm:mt-1">
+               <span className=" xs:block text-[8px] md:text-[10px] font-black text-primary tracking-[0.2em] md:tracking-[0.3em] uppercase">
                   {lang === "hi" ? "उपमुख्यमंत्री" : "Deputy CM Of MP"}
                </span>
-               <div className="h-1 w-1 rounded-full bg-green" /> {/* Tiny Green dot indicator */}
+              
+               <div className="h-[1px] w-4 bg-green/40 hidden sm:block" />
             </div>
           </div>
         </div>
 
-        {/* DESKTOP NAV - Green Hover Underline */}
-        <nav className="hidden xl:flex items-center gap-6">
+        {/* DESKTOP NAV */}
+        <nav className="hidden xl:flex items-center gap-8">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="nav-reveal text-[11px] font-[1000] uppercase tracking-widest text-secondary hover:text-green transition-all relative group">
-              <h1> {item.label}</h1>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green transition-all duration-300 group-hover:w-full" />
+            <a key={item.href} href={item.href} className="nav-reveal group relative">
+              <h1 className="text-[11px] font-[1000] uppercase tracking-widest text-secondary/80 group-hover:text-green transition-colors cursor-pointer">
+                {item.label}
+              </h1>
+              <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-green transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
-        {/* ACTIONS */}
-        <div className="nav-reveal flex items-center gap-2 sm:gap-3">
+        {/* DESKTOP ACTIONS - Hidden on Mobile */}
+        <div className="nav-reveal flex items-center gap-4">
           <button
             onClick={() => setLang(lang === "hi" ? "en" : "hi")}
-            className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-lg bg-bg-soft border border-border text-secondary font-black text-[10px] uppercase hover:border-green transition-colors"
+            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-xl bg-bg-soft border border-border text-secondary font-black text-[10px] uppercase hover:bg-white hover:border-green transition-all"
           >
-            <Globe size={13} className="text-green" /> {/* Green Globe */}
+            <Globe size={14} className="text-green" />
             {lang === "hi" ? "EN" : "हिंदी"}
           </button>
 
           <a
             href="#contact"
-            className="flex items-center gap-2 bg-primary px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-[10px] font-black uppercase text-white shadow-md hover:bg-secondary transition-all hover:shadow-primary/20"
+            className="hidden sm:flex items-center gap-2 bg-primary px-6 py-3 rounded-xl text-[10px] font-black uppercase text-white shadow-lg hover:bg-secondary transition-all"
           >
             {t.cta.contact}
-            <ArrowRight size={14} className="hidden xs:block" />
+            <ArrowRight size={14} />
           </a>
 
-          <button className="xl:hidden p-2 text-secondary bg-bg-soft rounded-xl active:scale-90 transition-transform border border-border" onClick={() => setIsOpen(true)}>
+          {/* MOBILE MENU TOGGLE */}
+          <button 
+            className="xl:hidden p-2.5 text-secondary bg-bg-soft rounded-xl border border-border active:scale-90 transition-all shadow-sm" 
+            onClick={() => setIsOpen(true)}
+          >
             <Menu size={22} />
           </button>
         </div>
       </div>
 
-      {/* MOBILE MENU: Added Green accents to cards and icons */}
+      {/* MOBILE MENU - All actions shifted here */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.1 }}
-            className="fixed inset-0 z-[110] bg-secondary p-6 lg:hidden flex flex-col overflow-hidden"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[110] bg-white lg:hidden flex flex-col p-6"
           >
-            {/* Background Decor - Saffron and Green Blurs */}
-            <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-primary/20 blur-[100px] rounded-full" />
-            <div className="absolute bottom-[-5%] left-[-5%] w-48 h-48 bg-green/10 blur-[80px] rounded-full" />
-
-            {/* Header */}
-            <div className="flex justify-between items-center mb-8 relative z-10">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 bg-white text-secondary rounded-xl flex items-center justify-center font-black text-xl border-b-2 border-green">R</div>
-                <span className="text-white font-gotu font-bold text-lg uppercase tracking-tight">Rajendra Shukla</span>
-              </div>
-              <button onClick={() => setIsOpen(false)} className="p-3 bg-white/10 text-white rounded-full backdrop-blur-md hover:bg-white/20">
-                <X size={24} />
-              </button>
+            {/* Drawer Header */}
+            <div className="flex justify-between items-center mb-8">
+               <div className="flex items-center gap-3">
+                  <img src={logo} className="h-10 w-10 object-cover rounded-lg border-b-2 border-green" />
+                  <h1 className="text-secondary font-black text-lg uppercase tracking-tight">Rajendra Shukla</h1>
+               </div>
+               <button onClick={() => setIsOpen(false)} className="p-3 bg-secondary text-white rounded-full shadow-lg">
+                  <X size={24} />
+               </button>
             </div>
 
-            {/* Nav Links */}
-            <nav className="flex flex-col gap-2 relative z-10 overflow-y-auto pr-2">
+            {/* Navigation Items */}
+            <nav className="flex flex-col gap-3 overflow-y-auto mb-6 pr-2">
               {navItems.map((item, idx) => (
                 <motion.a
                   key={item.href}
-                  initial={{ x: -20, opacity: 0 }}
+                  initial={{ x: 20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: idx * 0.05 }}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 text-white group active:bg-green transition-all"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-bg-soft border border-border group active:bg-green/5 transition-all"
                 >
-                  <div className="p-2 bg-white/10 rounded-lg group-active:bg-white/20 text-green transition-colors">
-                    {item.icon}
-                  </div>
-                  <span className="font-gotu text-xl font-medium tracking-tight uppercase">{item.label}</span>
+                  <div className="text-green">{item.icon}</div>
+                  <h1 className="text-lg font-bold text-secondary uppercase tracking-tight">{item.label}</h1>
                 </motion.a>
               ))}
             </nav>
 
-            {/* Footer Actions */}
-            <div className="mt-auto pt-6 flex flex-col gap-3 relative z-10">
+            {/* ACTION SECTION (Language & Contact shifted here) */}
+            <div className="mt-auto flex flex-col gap-3 pt-6 border-t border-border">
+               {/* Language Switcher */}
                <button 
                 onClick={() => { setLang(lang === "hi" ? "en" : "hi"); setIsOpen(false); }}
-                className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-white text-secondary font-black uppercase text-xs tracking-widest shadow-xl border-b-4 border-green active:border-b-0 active:translate-y-1 transition-all"
+                className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-bg-soft border border-border text-secondary font-black uppercase text-xs tracking-widest active:bg-white transition-all"
                >
                  <Globe size={18} className="text-green" />
                  {lang === "hi" ? "Switch to English" : "हिंदी में बदलें"}
                </button>
-               <div className="flex items-center justify-center gap-2 mt-2">
-                  <div className="h-1 w-1 rounded-full bg-green" />
-                  <p className="text-center text-white/30 text-[10px] uppercase tracking-[0.3em] font-bold">
-                    Vikas aur Vishwas
-                  </p>
-                  <div className="h-1 w-1 rounded-full bg-primary" />
-               </div>
+
+               {/* Mobile Contact Button */}
+               <a 
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-3 w-full py-5 rounded-2xl bg-primary text-white font-black uppercase text-xs tracking-widest shadow-xl shadow-primary/20"
+               >
+                 <PhoneCall size={18} />
+                 {t.cta.contact}
+               </a>
             </div>
           </motion.div>
         )}

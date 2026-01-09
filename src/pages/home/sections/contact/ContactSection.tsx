@@ -89,10 +89,10 @@ const ContactSection = () => {
             {/* LEFT CONTENT - Now second on mobile using order-2 */}
             <div className="w-full lg:col-span-5 order-2 lg:order-1 space-y-8 md:space-y-10">
               <div className="space-y-4 md:space-y-6">
-                <h3 className="text-2xl md:text-4xl font-black text-secondary leading-tight">
+                <h3 className="text-2xl md:text-4xl font-black text-secondary leading-tight text-justify">
                   {isHi ? "आपकी आवाज़, हमारी प्राथमिकता" : "Your Voice, Our Priority"}
                 </h3>
-                <p className="text-secondary/60 text-base md:text-lg leading-relaxed">{labels.desc}</p>
+                <p className="text-secondary/60 text-base md:text-lg leading-relaxed text-justify">{labels.desc}</p>
               </div>
               
               <div className="space-y-4">

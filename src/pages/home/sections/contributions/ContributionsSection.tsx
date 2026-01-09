@@ -83,7 +83,8 @@ const ContributionsSection = ({ lang }: ContributionsSectionProps) => {
 
               <div className="my-5 h-1 w-12 rounded-full bg-border transition-all duration-500 group-hover:w-24 group-hover:bg-green" />
 
-              <p className="font-martel text-lg leading-relaxed text-muted/90">
+              <p className="font-martel text-lg leading-relaxed text-muted/90 text-justify
+">
                 {isHi ? item.descHi : item.descEn}
               </p>
 

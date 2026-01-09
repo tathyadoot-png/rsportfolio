@@ -88,7 +88,7 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
                   </div>
 
                   {/* Body Text */}
-                  <h3 className="font-martel text-2xl font-black leading-[1.4] text-secondary group-hover:text-text transition-colors">
+                  <h3 className="font-martel text-2xl font-black leading-[1.4] text-secondary group-hover:text-text transition-colors text-justify">
                     {isHi ? item.hi : item.en}
                   </h3>
                 </div>
