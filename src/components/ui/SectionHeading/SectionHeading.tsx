@@ -46,7 +46,7 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
         {/* LEFT: HEADING - Adjusted md text size to prevent overflow */}
         <div className="flex-shrink-0 md:max-w-[60%] lg:max-w-none">
           <div className="py-2">
-            <h2 className="reveal-up font-[Gotu] text-3xl md:text-4xl lg:text-6xl font-[1000] text-[#112250] leading-[0.9] md:leading-[0.85] tracking-tighter uppercase">
+            <h2 className="reveal-up py-2 font-[Gotu] text-3xl md:text-4xl lg:text-6xl font-[1000] text-[#112250] leading-[0.9] md:leading-[0.85] tracking-tighter uppercase">
               {title}
             </h2>
           </div>
@@ -61,7 +61,7 @@ const SectionHeading = ({ title, subtitle }: SectionHeadingProps) => {
         <div className="w-full md:w-auto lg:w-1/3 md:pb-3 lg:pb-6">
           <div className="overflow-hidden">
             {subtitle && (
-              <p className="reveal-up font-[Martel] text-xs md:text-sm lg:text-lg font-black uppercase tracking-[0.2em] lg:tracking-[0.4em] text-green mb-2 lg:mb-4 leading-tight">
+              <p className="reveal-up font-[Martel] py-2 text-xs md:text-sm lg:text-lg font-black uppercase tracking-[0.2em] lg:tracking-[0.4em] text-green mb-2 lg:mb-4 leading-tight">
                 {subtitle}
               </p>
             )}
