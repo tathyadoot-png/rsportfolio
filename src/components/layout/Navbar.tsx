@@ -65,7 +65,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
               {lang === "hi" ? "राजेन्द्र शुक्ल" : "Rajendra Shukla"}
             </h1>
             <div className="flex items-center gap-1.5 mt-0.5 sm:mt-1">
-               <span className=" xs:block text-[8px] md:text-[10px] font-black text-primary tracking-[0.2em] md:tracking-[0.3em] uppercase">
+               <span className=" xs:block text-[8px] md:text-[10px] font-black text-primary  md:tracking-[0.3em] uppercase">
                   {lang === "hi" ? "उपमुख्यमंत्री" : "Deputy CM Of MP"}
                </span>
               
