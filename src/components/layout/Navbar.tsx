@@ -65,13 +65,8 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
               {lang === "hi" ? "राजेन्द्र शुक्ल" : "Rajendra Shukla"}
             </h1>
             <div className="flex items-center gap-1.5 mt-0.5 sm:mt-1">
-<<<<<<< HEAD
                <span className=" xs:block text-[8px] md:text-[10px] font-medium text-primary uppercase">
                   {lang === "hi" ? "उपमुख्यमंत्री, मध्य प्रदेश शासन" : "Deputy CM Of MP Govt."}
-=======
-               <span className=" xs:block text-[8px] md:text-[10px] font-black text-primary  md:tracking-[0.3em] uppercase">
-                  {lang === "hi" ? "उपमुख्यमंत्री" : "Deputy CM Of MP"}
->>>>>>> 8b49f68763aafc67dec1da9e2afe21cc4a1ffa20
                </span>
               
                <div className="h-[1px] w-4 bg-green/40 hidden sm:block" />
