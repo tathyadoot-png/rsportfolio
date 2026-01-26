@@ -21,7 +21,7 @@ const ContactSection = () => {
     e.preventDefault();
     const subject = isHi ? "जनसंपर्क वेबसाइट से नया संदेश" : "New Message";
     const body = `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nCity: ${form.city}\n\nMessage:\n${form.message}`;
-    window.location.href = `mailto:contact@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:officeofrajendrashukla@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const labels = {
