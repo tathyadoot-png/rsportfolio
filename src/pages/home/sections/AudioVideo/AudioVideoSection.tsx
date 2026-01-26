@@ -55,7 +55,7 @@ const AudioVideoSection = ({ lang }: AudioVideoSectionProps) => {
           <div className="w-full lg:w-2/3 space-y-6 md:space-y-8">
             <div className="flex items-center gap-3 px-2 md:px-0">
               <div className="h-6 md:h-8 w-1 bg-[#E46B2E] rounded-full" />
-              <h3 className="font-[Gotu] text-lg md:text-xl font-black text-[#112250] uppercase tracking-widest flex items-center gap-2">
+              <h3 className="font-[Gotu] text-lg md:text-xl font-black text-[#112250] uppercase  flex items-center gap-2">
                 <MonitorPlay size={18} className="md:w-5 md:h-5" /> {isHi ? "वीडियो प्रसारण" : "Video Broadcast"}
               </h3>
             </div>
@@ -82,7 +82,7 @@ const AudioVideoSection = ({ lang }: AudioVideoSectionProps) => {
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10">
-                  <span className="bg-[#159172] px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[9px] md:text-[10px] font-black text-white uppercase tracking-[0.2em] mb-2 md:mb-4 inline-block shadow-lg">
+                  <span className="bg-[#159172] px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[9px] md:text-[10px] font-black text-white uppercase  mb-2 md:mb-4 inline-block shadow-lg">
                     {videoList[0].tag}
                   </span>
                   <h4 className="text-white text-lg md:text-4xl font-[Gotu] font-black leading-tight drop-shadow-md">
@@ -110,7 +110,7 @@ const AudioVideoSection = ({ lang }: AudioVideoSectionProps) => {
                        <h5 className="font-[Gotu] py-2 font-bold text-[#112250] text-xs md:text-sm leading-snug line-clamp-2">
                          {vdo.title}
                        </h5>
-                       <span className="text-[8px] md:text-[9px] text-[#E46B2E] font-black uppercase tracking-widest mt-1 md:mt-2">Play Video</span>
+                       <span className="text-[8px] md:text-[9px] text-[#E46B2E] font-black uppercase  mt-1 md:mt-2">Play Video</span>
                     </div>
                  </div>
                ))}
@@ -121,7 +121,7 @@ const AudioVideoSection = ({ lang }: AudioVideoSectionProps) => {
           <div className="w-full lg:w-1/3 space-y-6 md:space-y-8">
             <div className="flex items-center gap-3 px-2 md:px-0">
               <div className="h-6 md:h-8 w-1 bg-[#159172] rounded-full" />
-              <h3 className="font-[Gotu] text-lg md:text-xl font-black text-[#112250] uppercase tracking-widest flex items-center gap-2">
+              <h3 className="font-[Gotu] text-lg md:text-xl font-black text-[#112250] uppercase  flex items-center gap-2">
                 <Headphones size={18} className="md:w-5 md:h-5" /> {isHi ? "ऑडियो संदेश" : "Audio Messages"}
               </h3>
             </div>
@@ -139,10 +139,10 @@ const AudioVideoSection = ({ lang }: AudioVideoSectionProps) => {
                             {activeAudio === idx ? <Pause size={18} className="text-white" /> : <Play size={18} fill="#112250" className="text-[#112250]" />}
                          </div>
                          <div className="flex-1 min-w-0">
-                            <h4 className={`font-[Gotu] font-bold text-[11px] md:text-xs truncate ${activeAudio === idx ? 'text-white' : 'text-[#112250]'}`}>
+                            <div className={`font-[Gotu] font-bold text-[11px] md:text-xs truncate py-2 ${activeAudio === idx ? 'text-white' : 'text-[#112250]'}`}>
                               {isHi ? `पॉडकास्ट: एपिसोड 0${audio}` : `Podcast: Episode 0${audio}`}
-                            </h4>
-                            <p className={`text-[8px] font-black uppercase tracking-widest mt-0.5 ${activeAudio === idx ? 'text-[#E46B2E]' : 'text-[#159172]'}`}>
+                            </div>
+                            <p className={`text-[8px] font-black uppercase  mt-0.5 ${activeAudio === idx ? 'text-[#E46B2E]' : 'text-[#159172]'}`}>
                                Jan Samvad
                             </p>
                          </div>

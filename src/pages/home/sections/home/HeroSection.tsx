@@ -14,6 +14,7 @@ import slid5 from "@/assets/slid5.jpeg"
 import slid6 from "@/assets/slid6.jpeg"
 import slid7 from "@/assets/slid7.jpeg"
 import img4 from "@/assets/4.jpg";
+import img5 from "@/assets/bjp.png";
 
 
 export type Lang = "hi" | "en";
@@ -59,18 +60,19 @@ useEffect(() => {
           
           {/* Badge */}
           <div className="hero-badge mb-6 lg:mb-10">
-            <div className="inline-flex items-center gap-3 rounded-full bg-primary/5 px-5 lg:px-6 py-2 lg:py-2.5 text-[10px] lg:text-[11px] font-black uppercase tracking-[0.25em] text-green border border-primary/20 shadow-sm">
-              <PiFlowerLotusThin className="text-lg lg:text-xl animate-pulse" />
+            <div className="inline-flex items-center gap-3 rounded-full bg-primary/5 px-5 lg:px-6 py-2 lg:py-2.5 text-[10px] lg:text-[11px] font-black uppercase  text-green border border-primary/20 shadow-sm">
+              {/* <PiFlowerLotusThin className="text-lg lg:text-xl animate-pulse" /> */}
+              <img src={img5} className="h-8 w-8" alt="" />
               {isHi ? "जनसेवा का संकल्प" : "Commitment to People"}
             </div>
           </div>
 
           {/* NAME: Proper scaling for desktop matras */}
           <div className="relative mb-8 lg:mb-10 space-y-0 lg:space-y-2">
-            <h1 className="hero-text font-gotu font-bold uppercase tracking-tight text-primary leading-[1.1] text-[clamp(2.8rem,7vw,6rem)]">
+            <h1 className="hero-text font-gotu font-bold uppercase  text-primary leading-[1.1] text-[clamp(2.8rem,7vw,6rem)]">
               {isHi ? "राजेन्द्र" : "RAJENDRA"}
             </h1>
-            <h1 className="hero-text font-gotu font-bold uppercase tracking-tight text-secondary leading-[1.1] text-[clamp(2.8rem,7vw,6rem)]">
+            <h1 className="hero-text font-gotu font-bold uppercase  text-secondary leading-[1.1] text-[clamp(2.8rem,7vw,6rem)]">
               {isHi ? "शुक्ल" : "SHUKLA"}
             </h1>
           </div>
@@ -93,7 +95,7 @@ useEffect(() => {
     </div>
   </div>
 
-  <p className="font-martel text-base lg:text-xl text-text-muted leading-relaxed max-w-lg mx-auto lg:mx-0">
+  <p className="font-Poppins text-base lg:text-xl text-text-muted leading-relaxed max-w-lg mx-auto lg:mx-0">
     {isHi
       ? "स्वस्थ समाज, सशक्त प्रदेश और बेहतर भविष्य के लिए निरंतर कार्य और समर्पण।"
       : "Continuous dedication towards a healthy society and a prosperous state."}
@@ -102,12 +104,12 @@ useEffect(() => {
 
           {/* CTA BUTTONS: Mobile pe stack, Desktop pe row inline */}
           <div className="mt-10 lg:mt-14 flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center lg:justify-start hero-details">
-            <a href="#contact" className="group relative overflow-hidden rounded-full bg-primary px-10 lg:px-12 py-4 lg:py-5 text-xs lg:text-sm font-black uppercase tracking-widest text-white shadow-2xl shadow-primary/30 transition-transform hover:scale-105 active:scale-95 text-center">
+            <a href="#contact" className="group relative overflow-hidden rounded-full bg-primary px-10 lg:px-12 py-4 lg:py-5 text-xs lg:text-sm font-black uppercase  text-white shadow-2xl shadow-primary/30 transition-transform hover:scale-105 active:scale-95 text-center">
               <span className="relative z-10">{t.cta.contact}</span>
               <div className="absolute inset-0 bg-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </a>
             
-            <a href="#about" className="rounded-full border-2 border-green px-10 lg:px-12 py-4 lg:py-5 text-xs lg:text-sm font-black uppercase tracking-widest text-green hover:bg-bg-soft transition-all duration-300 text-center">
+            <a href="#about" className="rounded-full border-2 border-green px-10 lg:px-12 py-4 lg:py-5 text-xs lg:text-sm font-black uppercase  text-green hover:bg-bg-soft transition-all duration-300 text-center">
               {isHi ? "परिचय" : "About"}
             </a>
           </div>
@@ -149,7 +151,7 @@ useEffect(() => {
             className="floating-card absolute -top-4 -right-2 lg:-top-8 lg:-right-4 bg-white p-6 lg:p-10 rounded-2xl lg:rounded-[3rem] shadow-2xl z-40 border border-border text-center"
           >
             <p className="text-green font-gotu font-black text-3xl lg:text-5xl leading-none">20+</p>
-            <p className="font-martel text-[8px] lg:text-[11px] font-black text-secondary/60 uppercase tracking-widest mt-2 lg:mt-3">Years of Service</p>
+            <p className="font-Poppins text-[8px] lg:text-[11px] font-black text-secondary/60 uppercase  mt-2 lg:mt-3">Years of Service</p>
           </motion.div>
         </div>
 

@@ -89,7 +89,7 @@ const GallerySection = () => {
                 <div className="flex items-end justify-between translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   <div className="max-w-[80%]">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-[10px] font-black uppercase tracking-widest border border-primary/20">
+                      <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-[10px] font-black uppercase  border border-primary/20">
                         {cat.images.length} {isHi ? "फोटोज" : "Photos"}
                       </span>
                     </div>
@@ -106,7 +106,7 @@ const GallerySection = () => {
               </div>
 
               {/* Glass Tag */}
-              <div className="absolute top-8 left-8 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute top-8 left-8 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase  flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <Layers size={14} className="text-primary" />
                 {isHi ? "गैलरी देखें" : "View Gallery"}
               </div>
@@ -134,10 +134,10 @@ const GallerySection = () => {
                     <img src={activeCat.thumbnail} className="w-full h-full object-cover" alt="" />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-lg md:text-xl tracking-tight">{isHi ? activeCat.titleHi : activeCat.titleEn}</h3>
+                  <h3 className="text-white font-bold text-lg md:text-xl ">{isHi ? activeCat.titleHi : activeCat.titleEn}</h3>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-green rounded-full animate-pulse" />
-                    <span className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold">{isHi ? "लाइव प्रीव्यू" : "Live Preview"}</span>
+                    <span className="text-white/40 text-[10px] md:text-xs uppercase  font-bold">{isHi ? "लाइव प्रीव्यू" : "Live Preview"}</span>
                   </div>
                 </div>
               </div>
@@ -201,7 +201,7 @@ const GallerySection = () => {
                  initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
                  className="px-8 py-5 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2rem] text-center max-w-2xl shadow-2xl"
                >
-                  <p className="text-primary font-black text-[10px] uppercase tracking-[0.4em] mb-2">
+                  <p className="text-primary font-black text-[10px] uppercase  mb-2">
                     {isHi ? "चित्र विवरण" : "Image Details"} — {imgIndex + 1} / {activeCat.images.length}
                   </p>
                   <p className="text-white text-base md:text-xl font-medium leading-snug">

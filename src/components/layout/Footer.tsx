@@ -23,10 +23,10 @@ const Footer = ({ lang }: { lang: Lang }) => {
         {/* Minimal Navigation Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-gray-100">
           <div className="flex flex-col items-center md:items-start">
-             <h2 className="font-[Gotu] text-2xl font-black text-secondary tracking-tighter uppercase">
+             <h2 className="font-[Gotu] text-2xl font-black text-secondary  uppercase">
                {isHi ? "राजेंद्र शुक्ल" : "Rajendra Shukla"}
              </h2>
-             <span className="text-[10px] font-bold text-primary tracking-[0.3em] uppercase">Vindhya Vision</span>
+             <span className="text-[10px] font-bold text-primary  uppercase">Vindhya Vision</span>
           </div>
 
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-3">
@@ -34,7 +34,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
               <a 
                 key={idx} 
                 href={link.path} 
-                className="text-xs font-bold text-secondary/60 hover:text-primary transition-all uppercase tracking-widest"
+                className="text-xs font-bold text-secondary/60 hover:text-primary transition-all uppercase "
               >
                 {link.label}
               </a>
@@ -46,7 +46,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
         <div className="my-8 rounded-[1.5rem] md:rounded-full bg-[#112250] p-4 md:p-2 pl-6 pr-6 md:pr-2 flex flex-col md:flex-row items-center justify-between gap-4">
           
           <div className="flex items-center gap-4">
-            <p className="text-white/30 text-[9px] font-black uppercase tracking-[0.2em] hidden md:block">
+            <p className="text-white/30 text-[9px] font-black uppercase  hidden md:block">
               © {new Date().getFullYear()} All Rights Reserved
             </p>
             <div className="h-4 w-px bg-white/10 hidden md:block" />
@@ -61,7 +61,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
             rel="noopener noreferrer"
             className="w-full md:w-auto flex items-center justify-between md:justify-start gap-4 bg-white/5 hover:bg-white/10 p-2 md:pl-6 rounded-full border border-white/5 transition-all group"
           >
-            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Digital Partner</span>
+            <span className="text-[10px] font-bold text-white/40 uppercase ">Digital Partner</span>
             <div className="flex items-center gap-3">
                <img 
                  src={logo} 
@@ -76,7 +76,7 @@ const Footer = ({ lang }: { lang: Lang }) => {
         </div>
 
         {/* Mobile Copyright Only */}
-        <p className="text-center text-[9px] font-bold text-secondary/20 uppercase tracking-widest pb-6 md:hidden">
+        <p className="text-center text-[9px] font-bold text-secondary/20 uppercase  pb-6 md:hidden">
           © {new Date().getFullYear()} Rajendra Shukla
         </p>
       </div>

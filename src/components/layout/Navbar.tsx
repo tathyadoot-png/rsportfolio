@@ -61,12 +61,12 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
           </div>
 
           <div className="flex flex-col">
-            <h1 className="font-gotu font-[1000] text-secondary text-[14px] sm:text-lg md:text-xl tracking-tighter uppercase leading-none">
+            <h1 className="font-gotu font-[1000] text-secondary text-[14px] sm:text-lg md:text-xl  uppercase leading-none">
               {lang === "hi" ? "राजेन्द्र शुक्ल" : "Rajendra Shukla"}
             </h1>
             <div className="flex items-center gap-1.5 mt-0.5 sm:mt-1">
-               <span className=" xs:block text-[8px] md:text-[10px] font-black text-primary tracking-[0.2em] md:tracking-[0.3em] uppercase">
-                  {lang === "hi" ? "उपमुख्यमंत्री" : "Deputy CM Of MP"}
+               <span className=" xs:block text-[8px] md:text-[10px] font-medium text-primary uppercase">
+                  {lang === "hi" ? "उपमुख्यमंत्री, मध्य प्रदेश शासन" : "Deputy CM Of MP Govt."}
                </span>
               
                <div className="h-[1px] w-4 bg-green/40 hidden sm:block" />
@@ -78,7 +78,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
         <nav className="hidden xl:flex items-center gap-8">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} className="nav-reveal group relative">
-              <h1 className="text-[11px] font-[1000] uppercase tracking-widest text-secondary/80 group-hover:text-green transition-colors cursor-pointer">
+              <h1 className="text-[11px] font-[1000] uppercase  text-secondary/80 group-hover:text-green transition-colors cursor-pointer">
                 {item.label}
               </h1>
               <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-green transition-all duration-300 group-hover:w-full" />
@@ -90,7 +90,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
         <div className="nav-reveal flex items-center gap-4">
           <button
             onClick={() => setLang(lang === "hi" ? "en" : "hi")}
-            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-xl bg-bg-soft border border-border text-secondary font-black text-[10px] uppercase hover:bg-white hover:border-green transition-all"
+            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-xl bg-bg-soft border border-border text-secondary  text-[10px] uppercase hover:bg-white hover:border-green transition-all"
           >
             <Globe size={14} className="text-green" />
             {lang === "hi" ? "EN" : "हिंदी"}
@@ -98,7 +98,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
 
           <a
             href="#contact"
-            className="hidden sm:flex items-center gap-2 bg-primary px-6 py-3 rounded-xl text-[10px] font-black uppercase text-white shadow-lg hover:bg-secondary transition-all"
+            className="hidden sm:flex items-center gap-2 bg-primary px-6 py-3 rounded-xl text-[10px]  uppercase text-white shadow-lg hover:bg-secondary transition-all"
           >
             {t.cta.contact}
             <ArrowRight size={14} />
@@ -128,7 +128,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
             <div className="flex justify-between items-center mb-8">
                <div className="flex items-center gap-3">
                   <img src={logo} className="h-10 w-10 object-cover rounded-lg border-b-2 border-green" />
-                  <h1 className="text-secondary font-black text-lg uppercase tracking-tight">Rajendra Shukla</h1>
+                  <h1 className="text-secondary font-black text-lg uppercase ">Rajendra Shukla</h1>
                </div>
                <button onClick={() => setIsOpen(false)} className="p-3 bg-secondary text-white rounded-full shadow-lg">
                   <X size={24} />
@@ -148,7 +148,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
                   className="flex items-center gap-4 p-4 rounded-2xl bg-bg-soft border border-border group active:bg-green/5 transition-all"
                 >
                   <div className="text-green">{item.icon}</div>
-                  <h1 className="text-lg font-bold text-secondary uppercase tracking-tight">{item.label}</h1>
+                  <h1 className="text-lg font-bold text-secondary uppercase ">{item.label}</h1>
                 </motion.a>
               ))}
             </nav>
@@ -158,7 +158,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
                {/* Language Switcher */}
                <button 
                 onClick={() => { setLang(lang === "hi" ? "en" : "hi"); setIsOpen(false); }}
-                className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-bg-soft border border-border text-secondary font-black uppercase text-xs tracking-widest active:bg-white transition-all"
+                className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-bg-soft border border-border text-secondary font-black uppercase text-xs  active:bg-white transition-all"
                >
                  <Globe size={18} className="text-green" />
                  {lang === "hi" ? "Switch to English" : "हिंदी में बदलें"}
@@ -168,7 +168,7 @@ const Navbar = ({ lang, setLang }: NavbarProps) => {
                <a 
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-3 w-full py-5 rounded-2xl bg-primary text-white font-black uppercase text-xs tracking-widest shadow-xl shadow-primary/20"
+                className="flex items-center justify-center gap-3 w-full py-5 rounded-2xl bg-primary text-white font-black uppercase text-xs  shadow-xl shadow-primary/20"
                >
                  <PhoneCall size={18} />
                  {t.cta.contact}

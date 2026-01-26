@@ -140,7 +140,7 @@ const JourneySection = ({ lang }: JourneySectionProps) => {
                 {/* Content Side */}
                 <div className="w-full md:w-[45%] timeline-card space-y-3 text-center md:text-left">
                   <h4 
-                    className="text-xs font-black uppercase tracking-[0.3em]"
+                    className="text-xs font-black uppercase "
                     style={{ color: item.theme }}
                   >
                     {isHi ? "उपलब्धि" : "Milestone"} — {item.year}
@@ -148,7 +148,7 @@ const JourneySection = ({ lang }: JourneySectionProps) => {
                   <h3 className="text-2xl md:text-4xl font-gotu font-bold text-secondary leading-tight">
                     {item.title}
                   </h3>
-                  <p className="font-martel text-base md:text-lg text-muted leading-relaxed max-w-md">
+                  <p className="font-Poppins text-base md:text-lg text-muted leading-relaxed max-w-md">
                     {item.desc}
                   </p>
                   

@@ -106,7 +106,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
             
             {/* Giant Name Branding */}
             <div className="relative group giant-name overflow-hidden">
-              <h2 className="font-[Gotu] font-[1000] py-4 tracking-tighter md:py-10 uppercase text-[#112250] text-6xl md:text-[8rem] lg:text-[9rem]">
+              <h2 className="font-[Gotu] font-[1000] py-4  md:py-10 uppercase text-[#112250] text-6xl md:text-[8rem] lg:text-[9rem]">
                 <span className="text-[#E46B2E] block">{isHi ? "राजेन्द्र" : "RAJENDRA"}</span>
                 <span className="relative inline-block">
                   {isHi ? "शुक्ल" : "SHUKLA"}
@@ -125,7 +125,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
                 </p>
               </div>
 
-              <div className="space-y-8 font-[Martel] text-gray-600 font-bold leading-relaxed text-xl">
+              <div className="space-y-8 font-[Poppins] text-gray-600 font-bold leading-relaxed text-xl">
                 <div className="flex gap-4">
                   <Quote className="text-[#E46B2E] shrink-0" size={32} />
                   <p className="text-justify" >
@@ -155,7 +155,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#112250] via-transparent to-transparent opacity-60" />
               <div className="absolute bottom-8 left-8">
-                 <p className="text-white font-[Gotu] text-sm tracking-widest uppercase opacity-80">Rewa, Madhya Pradesh</p>
+                 <p className="text-white font-[Gotu] text-sm  uppercase opacity-80">Rewa, Madhya Pradesh</p>
               </div>
             </div>
 
@@ -177,7 +177,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
                 </div>
                 <div>
                   <p className="font-[Gotu] text-3xl font-black text-green">B.E.</p>
-                  <p className="font-[Martel] text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">{isHi ? "मैकेनिकल 1986" : "Mechanical '86"}</p>
+                  <p className="font-[Poppins] text-[10px] font-black text-gray-400 uppercase  mt-2">{isHi ? "मैकेनिकल 1986" : "Mechanical '86"}</p>
                 </div>
               </motion.div>
 
@@ -187,7 +187,7 @@ const AboutSection = ({ lang }: AboutSectionProps) => {
                 </div>
                 <div>
                   <p className="font-[Gotu] text-3xl font-black text-green">BJP</p>
-                  <p className="font-[Martel] text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">{isHi ? "सदस्यता 1998" : "Joined 1998"}</p>
+                  <p className="font-[Poppins] text-[10px] font-black text-gray-400 uppercase  mt-2">{isHi ? "सदस्यता 1998" : "Joined 1998"}</p>
                 </div>
               </motion.div>
             </div>

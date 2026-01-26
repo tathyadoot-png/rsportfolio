@@ -137,7 +137,7 @@ const lastName = useMemo(() => splitText(isHi ? "शुक्ल" : "SHUKLA"), [
 </motion.div>
 
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} className="absolute bottom-12 text-center">
-              <p className="text-white text-[8px] sm:text-[10px] tracking-[0.5em] uppercase mb-1">Rewa • Madhya Pradesh</p>
+              <p className="text-white text-[8px] sm:text-[10px]  uppercase mb-1">Rewa • Madhya Pradesh</p>
               <div className="h-[1px] w-8 bg-orange-500/40 mx-auto" />
             </motion.div>
           </motion.div>

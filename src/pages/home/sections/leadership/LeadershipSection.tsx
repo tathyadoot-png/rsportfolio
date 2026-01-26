@@ -81,14 +81,14 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
                     <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
                       {item.icon}
                     </div>
-                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 border border-border text-[10px] font-bold uppercase tracking-widest text-secondary/60 group-hover:text-secondary group-hover:border-secondary/20 transition-all">
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 border border-border text-[10px] font-bold uppercase  text-secondary/60 group-hover:text-secondary group-hover:border-secondary/20 transition-all">
                       <Award className="w-3 h-3" />
                       {isHi ? "उपलब्धि" : "Achievement"}
                     </div>
                   </div>
 
                   {/* Body Text */}
-                  <h3 className="font-martel text-2xl font-black leading-[1.4] text-secondary group-hover:text-text transition-colors text-justify">
+                  <h3 className="font-Poppins text-2xl font-black leading-[1.4] text-secondary group-hover:text-text transition-colors text-justify">
                     {isHi ? item.hi : item.en}
                   </h3>
                 </div>
@@ -97,7 +97,7 @@ const LeadershipSection = ({ lang }: LeadershipSectionProps) => {
                 <div className="mt-12 flex items-end justify-between">
                   <div className="space-y-1">
                     <div className="h-1.5 w-12 rounded-full bg-primary group-hover:w-24 transition-all duration-700" />
-                    <p className="text-[10px] font-bold text-primary/40 uppercase tracking-tighter">Verified Milestone</p>
+                    <p className="text-[10px] font-bold text-primary/40 uppercase ">Verified Milestone</p>
                   </div>
                   <span className="font-gotu text-7xl font-black text-secondary/[0.03] group-hover:text-secondary/[0.07] transition-all">
                     0{index + 1}

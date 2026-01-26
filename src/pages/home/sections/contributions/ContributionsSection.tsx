@@ -83,13 +83,13 @@ const ContributionsSection = ({ lang }: ContributionsSectionProps) => {
 
               <div className="my-5 h-1 w-12 rounded-full bg-border transition-all duration-500 group-hover:w-24 group-hover:bg-green" />
 
-              <p className="font-martel text-lg leading-relaxed text-muted/90 text-justify
+              <p className="font-Poppins text-lg leading-relaxed text-muted/90 text-justify
 ">
                 {isHi ? item.descHi : item.descEn}
               </p>
 
               {/* Action Link (Subtle) */}
-              <div className="mt-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-secondary/40 transition-colors group-hover:text-green">
+              <div className="mt-8 flex items-center gap-2 text-xs font-black uppercase  text-secondary/40 transition-colors group-hover:text-green">
                 <span>{isHi ? "अधिक जानकारी" : "Read More"}</span>
                 <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
@@ -107,7 +107,7 @@ const ContributionsSection = ({ lang }: ContributionsSectionProps) => {
              <div className="flex -space-x-2">
                 {[1,2,3].map(i => <div key={i} className={`w-3 h-3 rounded-full border-2 border-white ${i === 1 ? 'bg-primary' : i === 2 ? 'bg-green' : 'bg-secondary'}`} />)}
              </div>
-             <p className="text-[11px] font-black uppercase tracking-[0.2em] text-muted">
+             <p className="text-[11px] font-black uppercase  text-muted">
                {isHi ? "मध्य प्रदेश के उज्ज्वल भविष्य की ओर" : "Towards a brighter future for MP"}
              </p>
           </div>

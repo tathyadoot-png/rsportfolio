@@ -59,27 +59,27 @@ const ContactSection = () => {
               <div className="relative bg-bg-soft border border-border p-6 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-secondary/5">
                 <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div className="space-y-2">
-                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1 tracking-widest">{labels.name}</label>
+                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1 ">{labels.name}</label>
                     <input type="text" name="name" required className="w-full rounded-xl border border-border bg-white px-4 py-3 md:px-5 md:py-4 focus:ring-2 focus:ring-green/20 focus:border-green transition-all outline-none" onChange={handleChange} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1 tracking-widest">{labels.phone}</label>
+                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1 ">{labels.phone}</label>
                     <input type="tel" name="phone" required className="w-full rounded-xl border border-border bg-white px-4 py-3 md:px-5 md:py-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" onChange={handleChange} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1 tracking-widest">{labels.email}</label>
+                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1 ">{labels.email}</label>
                     <input type="email" name="email" required className="w-full rounded-xl border border-border bg-white px-4 py-3 md:px-5 md:py-4 focus:ring-2 focus:ring-green/20 focus:border-green transition-all outline-none" onChange={handleChange} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1 tracking-widest">{labels.city}</label>
+                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1">{labels.city}</label>
                     <input type="text" name="city" required className="w-full rounded-xl border border-border bg-white px-4 py-3 md:px-5 md:py-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" onChange={handleChange} />
                   </div>
                
                   <div className="md:col-span-2 space-y-2">
-                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1 tracking-widest">{labels.msg}</label>
+                    <label className="text-[10px] md:text-xs font-bold text-secondary/40 uppercase ml-1 ">{labels.msg}</label>
                     <textarea name="message" rows={4} className="w-full rounded-xl border border-border bg-white px-4 py-3 md:px-5 md:py-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none resize-none" onChange={handleChange} />
                   </div>
-                  <button type="submit" className="md:col-span-2 bg-secondary py-4 md:py-5 rounded-2xl text-white font-black text-sm md:text-base uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-primary transition-all shadow-xl shadow-secondary/20">
+                  <button type="submit" className="md:col-span-2 bg-secondary py-4 md:py-5 rounded-2xl text-white font-black text-sm md:text-base uppercase flex items-center justify-center gap-3 hover:bg-primary transition-all shadow-xl shadow-secondary/20">
                     {labels.btn} <Send className="w-4 h-4 md:w-5 md:h-5" />
                   </button>
                 </form>
@@ -107,7 +107,7 @@ const ContactSection = () => {
               {/* Trust Badge */}
               <div className="flex items-center gap-3 py-2 px-4 bg-green/5 border border-green/10 rounded-full w-fit">
                 <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-green" />
-                <span className="text-[10px] md:text-xs font-bold text-green uppercase tracking-wider">
+                <span className="text-[10px] md:text-xs font-bold text-green uppercase ">
                  {isHi ? "हमसे जुड़ें" : "Connect With Us"}
                 </span>
               </div>
